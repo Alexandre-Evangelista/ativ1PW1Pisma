@@ -26,7 +26,7 @@ class RegisterPetshop{
             name
             }
     });
-    return novoPetshop;
+    return {novoPetshop};
 }
 }
 

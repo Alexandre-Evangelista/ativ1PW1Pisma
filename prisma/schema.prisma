@@ -12,13 +12,6 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
-model Petshop {
-  id        String   @id @default(uuid())
-  name      String
-  cnpj      String   @unique
-  pets      Pet[]
-  createdAt DateTime @default(now())
-}
 
 model Pet {
   id                  String   @id @default(uuid())
@@ -26,11 +19,20 @@ model Pet {
   type                String
   description         String
   vaccinated          Boolean  @default(false)
-  deadlineVaccination DateTime
+  deadline_vaccination DateTime
   createdAt           DateTime @default(now())
   petshopCNPJ           String
   petshop             Petshop  @relation(fields: [petshopCNPJ],references: [cnpj])
 }
+
+model Petshop {
+  id        String   @id @default(uuid())
+  name      String
+  cnpj      String   @unique
+  pets      Pet[]
+}
+
+
 
 
     

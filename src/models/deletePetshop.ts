@@ -1,8 +1,10 @@
 import { prisma } from "../database/repository";
+
 type Params={
     cnpj:string;
 
 }
+
 class DeletePetshop{
     async execute({cnpj}:Params){
         try {
@@ -24,3 +26,4 @@ class DeletePetshop{
         }
     }
 }
+export default new DeletePetshop

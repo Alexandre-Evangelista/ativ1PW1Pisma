@@ -9,7 +9,7 @@ type Params = {
     petshopCNPJ: string;
 };
 
-class registerPet{
+class RegisterPet{
     async execute ({name,type,description,deadline_vaccination,petshopCNPJ}:Params){
         const cnpj = petshopCNPJ;
         const petshop= await prisma.petshop.findUnique({
@@ -19,6 +19,7 @@ class registerPet{
         });
         if (!petshop) {
             return { status: 400, error, message: 'Petshop não existe!' };
+            stop;
           }
           const { DateTime } = require('luxon');
           const dataFormatada = DateTime.fromFormat(deadline_vaccination, 'dd/MM/yyyy').toISO();
@@ -36,7 +37,8 @@ class registerPet{
                 }
             }
         });
-        return novoPet;
+        return {novoPet};
     
     }
 }
+export default new RegisterPet();
