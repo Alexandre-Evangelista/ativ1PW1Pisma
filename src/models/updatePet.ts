@@ -25,7 +25,7 @@ class UpdatePet{
                     name,
                     type,
                     description,
-                    deadlineVaccination:dataFormatada,
+                    deadline_vaccination:dataFormatada,
                     petshop:{
                         connect:{cnpj}
                     }
